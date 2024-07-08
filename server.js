@@ -20,6 +20,32 @@ const handleValidationErrors = (req, res, next) => {
   }
   next();
 };
+
+// base endpoint
+app.get('/', (req, res) => {
+  res.status(200).json({
+    message: 'Welcome to the API try using the api endpoints below',
+    endpoints: [
+    {
+      method: 'POST',
+      url: '/auth/register',
+    },
+    {
+      method: 'POST',
+      url: '/auth/login',
+    },
+    {
+      method: 'POST',
+      url: '/api/organisations',
+      Headers: ' you need to provide Authorization header'
+    },
+    {
+      message: 'there are mch more explore .......'
+    }
+  ]
+  })
+})
+
 // Register endpoint
 app.post('/auth/register', validateUser, authController.register);
 
