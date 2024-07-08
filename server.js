@@ -6,7 +6,7 @@ const {body, validationResult} = require('express-validator');
 const authenticateToken = require('./middleware/auth');
 const authController = require('./controllers/authController')
 const syncModels = require('./config/sync');
-
+  
 const app = express();
 app.use(express.json());
 app.use(cors())
